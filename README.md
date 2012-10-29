@@ -1,4 +1,4 @@
-Nyaa-Novel
+﻿Nyaa-Novel
 ==========
 
 Content
@@ -7,6 +7,8 @@ Content
 1. Introduction
 2. Done/Working on/To-do
 3. Files
+4. What's in the 'hub
+5. Status
 
 Introduction
 ------------
@@ -18,7 +20,7 @@ Done/Working on/To-do
 
 Done:
 - General XML loading and creating objects based on various parts
-  Heirarchy: 
+  - Heirarchy: 
     - NyaaNovel
       - This class is the whole package, the story will be put into this one object upon loading. The Novel Class holds Chapter objects.
     - NyaaChapter
@@ -29,7 +31,7 @@ Done:
       - Each of these contains exactly one dialog and (will soon) support setting flags through choices and having requirements for flags. These also contin paths for the images to display. And a (soon to be made) parameter that can mod the scene, simply named "SceneMod" and (will have) CSS like syntax. ( "bg-image: ./img/bg/2.jpg; music: ./msx/bgm/1.mp3; play-once: ./msx/sfx/surprise" ) 
 
 - Displaying the scene
-  Currently displays:
+  - Currently displays:
     - Character
     - Background
     - Optional Shadow
@@ -39,20 +41,24 @@ Done:
     - (Buggy) Animations 
 
 - Simple selection screen
-  For testing purposes, a simple file load dialog will be shown at run, as well as allowing you to change scene and chapter to debug.
+  - For testing purposes, a simple file load dialog will be shown at run, as well as allowing you to change scene and chapter to debug.
 
 Working on:
   - Flags
-      Crucial to making these novels interactive
+      - Crucial to making these novels interactive
   - Animation
-      Need better animation
+      - Need better animation
 
 Todo:
   - Music/SFX
   - Character Position Mod
   - Background Zoom Mod
   - SceneMod
-      CSS-like Dialog parameters than will change the scene.
+      - CSS-like Dialog parameters than will change the scene.
+  - Auto-Setting 
+      - Start novels on execution. For deployment.
+  - Saving and Loading
+  - Main menu for novel
   - Bugs... Bugs... More bugs... I'll need to buy more repellent
 
 Files
@@ -95,4 +101,24 @@ The ideal file stucture of a NyaaNovel Install is as follows:
 	| |- story.nyaa
 	| |_
 	|- NyaaNovel.exe
+	|- NyaaConfig.nyaa
 	|_
+	
+What's in the 'hub
+------------------
+
+- src
+  - This is the VS2012 project files
+- res
+  - Example story file
+  
+Status
+------
+
+- Will it compile: __YES!__
+	- Happy days are here!
+- Will it run full: __NO!__
+	- Why? ;_;
+		- There are some file refrences which I will fix ASAP to make them non-static references. ごめんなさい。 I have failed you.
+- Will I fix it: __YES!__
+	- Here's a pet while you wait. *Mio-chan pets your head*
