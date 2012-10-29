@@ -1,0 +1,31 @@
+﻿<Window x:Class="NyaaNovelWPF.NyaaOutput"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="NyaaOutput" Height="743.991" Width="1285.603" ResizeMode="CanMinimize" WindowStyle="ToolWindow">
+    
+    <Grid>
+        
+        <Image x:Name="Background" HorizontalAlignment="Left" Height="720" VerticalAlignment="Top" Width="1280" Stretch="UniformToFill"/>
+        <Image x:Name="Shadow" HorizontalAlignment="Left" Height="720" VerticalAlignment="Top" Width="1280" Source="M:\Dropbox\NyaaNyaa Shared Folders\Nyaa-Novel Development\Stories\K-On Test\imgs\shadowScreen.png"/>
+        <Image x:Name="CharacterImage" HorizontalAlignment="Right" Height="720" VerticalAlignment="Bottom" Width="1280" MouseDown="CharacterImage_MouseDown" Opacity="0"/>
+        <Canvas Margin="-1280,444,94,208">
+            <Image x:Name="NameBG" Height="69" VerticalAlignment="Top" Width="1280" Stretch="UniformToFill" HorizontalAlignment="Left">
+                <Image.Source>
+                    <BitmapImage UriSource="file:///M://Dropbox/NyaaNyaa Shared Folders/Nyaa-Novel Development/Stories/K-On Test/imgs/name.png"/>
+                </Image.Source>
+            </Image>
+            <Label x:Name="NameText" Content="" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="1186" FontSize="18" Canvas.Left="1280" Canvas.Top="17"/>
+        </Canvas>
+        <Canvas Margin="0,481,0,0">
+            <Image x:Name="TextBG" HorizontalAlignment="Left" Height="240" VerticalAlignment="Top" Width="1280" Source="M:\Dropbox\NyaaNyaa Shared Folders\Nyaa-Novel Development\Stories\K-On Test\imgs\text.png" MouseDown="Image_MouseDown_1"/>
+            <TextBlock x:Name="MainText" HorizontalAlignment="Left" Height="136" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="1176" FontSize="28" MouseDown="MainText_MouseDown" Canvas.Left="10" Canvas.Top="53"/>
+        </Canvas>
+        <Grid x:Name="Choices" Margin="26,585,121,60" Visibility="Hidden">
+            <Button x:Name="Choice1" Content="1" HorizontalAlignment="Left" Margin="0,0,0,0" Width="552" Height="30" VerticalAlignment="Top"/>
+            <Button x:Name="Choice2" Content="2" HorizontalAlignment="Left" Margin="0,40,0,0" Width="552" Height="30" VerticalAlignment="Top"/>
+            <Button x:Name="Choice3" Content="3" HorizontalAlignment="Left" Margin="581,0,0,0" Width="552" Height="30" VerticalAlignment="Top"/>
+            <Button x:Name="Choice4" Content="4" HorizontalAlignment="Left" Margin="581,40,0,0" Width="552" Height="30" VerticalAlignment="Top"/>
+        </Grid>
+        <Rectangle x:Name="SceneSwitcher" Fill="Black" HorizontalAlignment="Left" Height="720" Stroke="Black" VerticalAlignment="Top" Width="1280" Opacity="100" MouseDown="SceneSwitcher_MouseDown"/>
+    </Grid>
+</Window>

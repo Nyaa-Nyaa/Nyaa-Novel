@@ -1,0 +1,35 @@
+c:\users\pavel kiryanov\documents\visual studio 2012\Projects\WpfApplication1\WpfApplication1\bin\Debug\WpfApplication1.exe.config
+c:\users\pavel kiryanov\documents\visual studio 2012\Projects\WpfApplication1\WpfApplication1\bin\Debug\WpfApplication1.exe
+c:\users\pavel kiryanov\documents\visual studio 2012\Projects\WpfApplication1\WpfApplication1\bin\Debug\WpfApplication1.pdb
+c:\users\pavel kiryanov\documents\visual studio 2012\Projects\WpfApplication1\WpfApplication1\obj\Debug\NyaaNovelWPF.csprojResolveAssemblyReference.cache
+c:\users\pavel kiryanov\documents\visual studio 2012\Projects\WpfApplication1\WpfApplication1\obj\Debug\MainWindow.baml
+c:\users\pavel kiryanov\documents\visual studio 2012\Projects\WpfApplication1\WpfApplication1\obj\Debug\MainWindow.g.cs
+c:\users\pavel kiryanov\documents\visual studio 2012\Projects\WpfApplication1\WpfApplication1\obj\Debug\App.g.cs
+c:\users\pavel kiryanov\documents\visual studio 2012\Projects\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1_MarkupCompile.cache
+c:\users\pavel kiryanov\documents\visual studio 2012\Projects\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.g.resources
+c:\users\pavel kiryanov\documents\visual studio 2012\Projects\WpfApplication1\WpfApplication1\obj\Debug\NyaaNovelWPF.csproj.GenerateResource.Cache
+c:\users\pavel kiryanov\documents\visual studio 2012\Projects\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.exe
+c:\users\pavel kiryanov\documents\visual studio 2012\Projects\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.pdb
+c:\users\pavel kiryanov\documents\visual studio 2012\Projects\WpfApplication1\WpfApplication1\obj\Debug\DebugConsole.baml
+c:\users\pavel kiryanov\documents\visual studio 2012\Projects\WpfApplication1\WpfApplication1\obj\Debug\DebugConsole.g.cs
+C:\Users\Pavel Kiryanov\Documents\Visual Studio 2012\Projects\WpfApplication1\WpfApplication1\obj\Debug\NyaaNovelWPF.Properties.Resources.resources
+C:\Users\Pavel Kiryanov\Documents\Visual Studio 2012\Projects\WpfApplication1\WpfApplication1\obj\Debug\NyaaOutput.baml
+C:\Users\Pavel Kiryanov\Documents\Visual Studio 2012\Projects\WpfApplication1\WpfApplication1\obj\Debug\NyaaOutput.g.cs
+M:\Documents\Visual Studio 2012\Projects\NyaaNovelWPF\NyaaNovelWPF\bin\Debug\WpfApplication1.exe.config
+M:\Documents\Visual Studio 2012\Projects\NyaaNovelWPF\NyaaNovelWPF\obj\Debug\WpfApplication1.exe
+M:\Documents\Visual Studio 2012\Projects\NyaaNovelWPF\NyaaNovelWPF\obj\Debug\WpfApplication1.pdb
+M:\Documents\Visual Studio 2012\Projects\NyaaNovelWPF\NyaaNovelWPF\bin\Debug\WpfApplication1.exe
+M:\Documents\Visual Studio 2012\Projects\NyaaNovelWPF\NyaaNovelWPF\bin\Debug\WpfApplication1.pdb
+M:\Documents\Visual Studio 2012\Projects\NyaaNovelWPF\NyaaNovelWPF\obj\Debug\NyaaNovelWPF.csprojResolveAssemblyReference.cache
+M:\Documents\Visual Studio 2012\Projects\NyaaNovelWPF\NyaaNovelWPF\obj\Debug\DebugConsole.baml
+M:\Documents\Visual Studio 2012\Projects\NyaaNovelWPF\NyaaNovelWPF\obj\Debug\MainWindow.baml
+M:\Documents\Visual Studio 2012\Projects\NyaaNovelWPF\NyaaNovelWPF\obj\Debug\NyaaOutput.baml
+M:\Documents\Visual Studio 2012\Projects\NyaaNovelWPF\NyaaNovelWPF\obj\Debug\DebugConsole.g.cs
+M:\Documents\Visual Studio 2012\Projects\NyaaNovelWPF\NyaaNovelWPF\obj\Debug\MainWindow.g.cs
+M:\Documents\Visual Studio 2012\Projects\NyaaNovelWPF\NyaaNovelWPF\obj\Debug\NyaaOutput.g.cs
+M:\Documents\Visual Studio 2012\Projects\NyaaNovelWPF\NyaaNovelWPF\obj\Debug\App.g.cs
+M:\Documents\Visual Studio 2012\Projects\NyaaNovelWPF\NyaaNovelWPF\obj\Debug\WpfApplication1_MarkupCompile.cache
+M:\Documents\Visual Studio 2012\Projects\NyaaNovelWPF\NyaaNovelWPF\obj\Debug\WpfApplication1.g.resources
+M:\Documents\Visual Studio 2012\Projects\NyaaNovelWPF\NyaaNovelWPF\obj\Debug\NyaaNovelWPF.Properties.Resources.resources
+M:\Documents\Visual Studio 2012\Projects\NyaaNovelWPF\NyaaNovelWPF\obj\Debug\NyaaNovelWPF.csproj.GenerateResource.Cache
+M:\Documents\Visual Studio 2012\Projects\NyaaNovelWPF\NyaaNovelWPF\bin\Debug\NyaaNovelWPF.exe.config

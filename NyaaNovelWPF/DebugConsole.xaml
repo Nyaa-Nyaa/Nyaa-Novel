@@ -1,0 +1,13 @@
+﻿<Window x:Class="NyaaNovelWPF.DebugConsole"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="DebugConsole" Height="424" Width="378">
+    <Grid>
+        <RichTextBox x:Name="ConsoleText" HorizontalAlignment="Left" VerticalAlignment="Top" >
+            <FlowDocument>
+                <Paragraph/>
+            </FlowDocument>
+        </RichTextBox>
+
+    </Grid>
+</Window>
