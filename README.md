@@ -60,39 +60,39 @@ Files
 
 The ideal file stucture of a NyaaNovel Install is as follows:
 
-[Root of NyaaNovel Install]
-|--[story]
-| |
-| |--[chapters]
-| | |--[chapter1]
-| | | |--[img]
-| | | | |--[bg]
-| | | | | |- BackgroundImage1.png
-| | | | | |_
-| | | | |--[char]
-| | | | | |- Char1-Pose1.png
-| | | | | |_
-| | | | |--[other]
-| | | | | |- OtherRefrencedImage.png
-| | | | | |_
-| | | | |_
-| | | |--[msx]
-| | | | |-- [bgm]
-| | | | | |- BGM1.mp3
-| | | | | |_
-| | | | |-- [sfx]
-| | | | | |- SFX1.mp3
-| | | | | |_
-| | | | |-- [dialog]
-| | | | | |- Char1-Speech1.mp3
-| | | | | |_
-| | | |- chapter1.nyaa
-| | | |_
-| | |--[chapter2]
-| | | |- {More of the same}
-| | | |_
-| | |_
-| |- story.nyaa
-| |_
-|- NyaaNovel.exe
-|_
+	[Root of NyaaNovel Install]
+	|--[story]
+	| |
+	| |--[chapters]
+	| | |--[chapter1]
+	| | | |--[img]
+	| | | | |--[bg]
+	| | | | | |- BackgroundImage1.png
+	| | | | | |_
+	| | | | |--[char]
+	| | | | | |- Char1-Pose1.png
+	| | | | | |_
+	| | | | |--[other]
+	| | | | | |- OtherRefrencedImage.png
+	| | | | | |_
+	| | | | |_
+	| | | |--[msx]
+	| | | | |-- [bgm]
+	| | | | | |- BGM1.mp3
+	| | | | | |_
+	| | | | |-- [sfx]
+	| | | | | |- SFX1.mp3
+	| | | | | |_
+	| | | | |-- [dialog]
+	| | | | | |- Char1-Speech1.mp3
+	| | | | | |_
+	| | | |- chapter1.nyaa
+	| | | |_
+	| | |--[chapter2]
+	| | | |- {More of the same}
+	| | | |_
+	| | |_
+	| |- story.nyaa
+	| |_
+	|- NyaaNovel.exe
+	|_
