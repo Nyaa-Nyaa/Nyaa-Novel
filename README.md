@@ -119,8 +119,6 @@ Status
 
 - Will it compile: __YES!__
 	- Happy days are here!
-- Will it run full: __NO!__
-	- Why? ;_;
-		- There are some file refrences which I will fix ASAP to make them non-static references. ごめんなさい。 I have failed you.
-- Will I fix it: __YES!__
-	- Here's a pet while you wait. *Mio-chan pets your head*
+- Will it run full: __YES!__
+	- They really are!
+
