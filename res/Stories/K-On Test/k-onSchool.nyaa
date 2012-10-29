@@ -7,6 +7,11 @@
   <author>Mio-chan</author>
   <icon-file>.\icon.png</icon-file>
  </info>
+ <resources>
+	<dialog-bg>.\common\img\text\dialog.png</dialog-bg>
+	<name-bg>.\common\img\text\name.png</name-bg>
+	<shadow>.\common\img\shadow.png</shadow>	
+ </resources>
  <chapters>
   <chapter>
    <title>Chapter 1: Meeting Yui outside the school</title>

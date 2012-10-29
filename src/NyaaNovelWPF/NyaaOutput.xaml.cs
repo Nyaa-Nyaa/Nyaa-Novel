@@ -67,7 +67,6 @@ namespace NyaaNovelWPF
                         setShadow(CurrentDialog.getShadow());
                         NyaaDebug.addToConsole("Switching Backgrounds");
                         // Create image element to set as icon on the menu element
-                        Image icon = new Image();
                         BitmapImage bmImage = new BitmapImage();
                         bmImage.BeginInit();
                         bmImage.UriSource = new Uri(imagePath, UriKind.Absolute);
@@ -107,7 +106,6 @@ namespace NyaaNovelWPF
                     {
                         NyaaDebug.addToConsole("Switching Characters and showing them");
                         // Create image element to set as icon on the menu element
-                        Image icon = new Image();
                         BitmapImage bmImage = new BitmapImage();
                         bmImage.BeginInit();
                         bmImage.UriSource = new Uri(imagePath, UriKind.Absolute);
@@ -266,6 +264,25 @@ namespace NyaaNovelWPF
             {
                 finishNovel();
             }
+        }
+
+        public void setMainResources(String dialogBGPath, String nameBGPath, String ShadowPath)
+        {
+            BitmapImage dialogImage = new BitmapImage();
+            dialogImage.BeginInit();
+            dialogImage.UriSource = new Uri(dialogBGPath, UriKind.Absolute);
+            dialogImage.EndInit();
+            BitmapImage nameImage = new BitmapImage();
+            nameImage.BeginInit();
+            nameImage.UriSource = new Uri(nameBGPath, UriKind.Absolute);
+            nameImage.EndInit();
+            BitmapImage shadowImage = new BitmapImage();
+            shadowImage.BeginInit();
+            shadowImage.UriSource = new Uri(ShadowPath, UriKind.Absolute);
+            shadowImage.EndInit();
+            NameBG.Source = nameImage;
+            TextBG.Source = dialogImage;
+            Shadow.Source = shadowImage;
         }
 
         private void finishNovel()

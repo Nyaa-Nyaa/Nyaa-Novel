@@ -59,7 +59,7 @@ namespace NyaaNovelWPF {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WpfApplication1;component/debugconsole.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/NyaaNovelWPF;component/debugconsole.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\DebugConsole.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

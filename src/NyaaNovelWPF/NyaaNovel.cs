@@ -15,7 +15,7 @@ namespace NyaaNovelWPF
         NyaaChapter[] NyaaChapters;
         String rootDirectory;
         Boolean animated;
-        NyaaOutput YuiImouto;
+        NyaaOutput OutputWindow;
         int curLocationChapter;
         int Length;
 
@@ -34,6 +34,8 @@ namespace NyaaNovelWPF
             NyaaDebug = new DebugConsole();
             NyaaDebug.Show();
             NyaaDebug.addToConsole("NyaaNovel Pre-Alpha 0.0.1a Console Loaded");
+            OutputWindow = new NyaaOutput(this, NyaaDebug);
+            NyaaDebug.addToConsole("Notice: Loaded Output Window!");
             NyaaDebug.addToConsole("\n ------| Root File Search |------");
             // load main xml
             rootNyaaStoryFile = new XmlDocument();
@@ -56,49 +58,63 @@ namespace NyaaNovelWPF
             }
             try
             {
-                XmlNodeList tempList = rootNyaaStoryFile.SelectNodes("//chapters/chapter");
-                NyaaDebug.addToConsole("Notice: Chapter Query Success! Number of Chapters reported: " + tempList.Count);
-                NyaaChapters = new NyaaChapter[tempList.Count];
-                Length = tempList.Count;
-                int chapterNo = 0; //sigh no .add method...
-                foreach (XmlNode chapter in tempList)
+                //Check for <root-file>true</root-file>
+                XmlNodeList rootfileQuery = rootNyaaStoryFile.SelectNodes("/story");
+                if (rootfileQuery[0]["root-file"].InnerText.CompareTo("true") == 0)
                 {
-                    NyaaDebug.addToConsole("\n ---| New Chapter Search |---");
-                    String title = chapter["title"].InnerText;
-                    String loadingSplash = getResourceLocation(chapter["loading-splash"].InnerText);
-                    String chapterLocation = getResourceLocation(chapter["chapter-location"].InnerText);
-                    NyaaDebug.addToConsole("Notice: Found chapter: " + title);
-                    if (File.Exists(loadingSplash))
+                    //Set Resources
+                    XmlNodeList ResourceQuery = rootNyaaStoryFile.SelectNodes("//resources");
+                    OutputWindow.setMainResources(getResourceLocation(ResourceQuery[0]["dialog-bg"].InnerText), getResourceLocation(ResourceQuery[0]["name-bg"].InnerText), getResourceLocation(ResourceQuery[0]["shadow"].InnerText));
+                    //Split into objects
+                    XmlNodeList tempList = rootNyaaStoryFile.SelectNodes("//chapters/chapter");
+                    NyaaDebug.addToConsole("Notice: Chapter Query Success! Number of Chapters reported: " + tempList.Count);
+                    NyaaChapters = new NyaaChapter[tempList.Count];
+                    Length = tempList.Count;
+                    int chapterNo = 0; //sigh no .add method...
+                    foreach (XmlNode chapter in tempList)
                     {
-                        NyaaDebug.addToConsole("Notice: Loading Splash applied from: " + loadingSplash);
-                        loadSplash(loadingSplash);
+                        NyaaDebug.addToConsole("\n ---| New Chapter Search |---");
+                        String title = chapter["title"].InnerText;
+                        String loadingSplash = getResourceLocation(chapter["loading-splash"].InnerText);
+                        String chapterLocation = getResourceLocation(chapter["chapter-location"].InnerText);
+                        NyaaDebug.addToConsole("Notice: Found chapter: " + title);
+                        if (File.Exists(loadingSplash))
+                        {
+                            NyaaDebug.addToConsole("Notice: Loading Splash applied from: " + loadingSplash);
+                            loadSplash(loadingSplash);
+                        }
+                        else
+                        {
+                            NyaaDebug.addToConsole("WARN! : Loading splash not found, defaulting to blank");
+                        }
+                        if (File.Exists(chapterLocation))
+                        {
+                            NyaaDebug.addToConsole("Notice: Chapter is found in: " + chapterLocation + "; Now loading...");
+                        }
+                        else
+                        {
+                            NyaaDebug.addToConsole("FATAL!! : Chapter file is missing, intended location: " + chapterLocation);
+                        }
+                        NyaaChapters[chapterNo] = new NyaaChapter(title, chapterLocation, loadingSplash, rootDirectory, NyaaDebug);
+                        NyaaDebug.addToConsole("Notice: Back in the main thread!");
+                        chapterNo++;
                     }
-                    else
-                    {
-                        NyaaDebug.addToConsole("WARN! : Loading splash not found, defaulting to blank");
-                    }
-                    if (File.Exists(chapterLocation))
-                    {
-                        NyaaDebug.addToConsole("Notice: Chapter is found in: " + chapterLocation + "; Now loading...");
-                    }
-                    else
-                    {
-                        NyaaDebug.addToConsole("FATAL!! : Chapter file is missing, intended location: " + chapterLocation);
-                    }
-                    NyaaChapters[chapterNo] = new NyaaChapter(title, chapterLocation, loadingSplash, rootDirectory, NyaaDebug);
-                    NyaaDebug.addToConsole("Notice: Back in the main thread!");
-                    chapterNo++;
-
                 }
+                else
+                {
+                    NyaaDebug.addToConsole("FATAL: That is not a valid root file.");
+                }
+
             }
             catch (XmlException ex)
             {
                 NyaaDebug.addToConsole(String.Format("FATAL: Bad query... : {0}", ex.Message));
             }
-            YuiImouto = new NyaaOutput(this, NyaaDebug);
-            YuiImouto.Show();
-
+            
+            OutputWindow.Show();
         }
+
+        
 
         private string getResourceLocation(String rootBasedLocation)
         {
