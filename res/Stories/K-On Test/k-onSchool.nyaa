@@ -1,0 +1,27 @@
+<?xml version = "1.0" encoding="UTF-8"?>
+<story>
+ <root-file>true</root-file>
+ <info>
+  <title>K-On! School Tour Test</title>
+  <description>Take a tour of the Sakuragaoka High School lead by the Keionbu!</description>
+  <author>Mio-chan</author>
+  <icon-file>.\icon.png</icon-file>
+ </info>
+ <chapters>
+  <chapter>
+   <title>Chapter 1: Meeting Yui outside the school</title>
+   <loading-splash>.\ch1\loading.jpg</loading-splash>
+   <chapter-location>.\ch1\chapter1.nyaa</chapter-location>
+  </chapter>
+  <chapter>
+   <title>Chapter 2: Meeting the Keionbu</title>
+   <loading-splash>.\ch2\loading.jpg</loading-splash>
+   <chapter-location>.\ch2\chapter2.nyaa</chapter-location>
+  </chapter>
+  <chapter>
+   <title>Chapter 3: Hokago Tea Time</title>
+   <loading-splash>.\ch3\loading.jpg</loading-splash>
+   <chapter-location>.\ch3\chapter3.nyaa</chapter-location>
+  </chapter>
+ </chapters>
+</story>

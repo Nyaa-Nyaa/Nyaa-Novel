@@ -1,0 +1,28 @@
+﻿<?xml version = "1.0" encoding="UTF-8"?>
+<chapter-content>
+	<chapter-file>true</chapter-file>
+	<scenes>
+		<scene>
+			<transition>fade</transition>
+			<background>./img/bg/highschool.jpg</background>
+			<scene-content>
+				<d>
+					<char-img>./img/char/yui-excited.png</char-img>
+					<char-pos>right</char-pos>
+					<char-view>normal</char-view>
+					<shadow>false</shadow>
+					<name></name>
+					<d-content>Entering chpater 3  temporary place holder</d-content>				
+				</d>
+				<d>
+					<char-img>./img/char/yui-excited.png</char-img>
+					<char-pos>right</char-pos>
+					<char-view>normal</char-view>
+					<shadow>true</shadow>
+					<name>ゆい (Yui)</name>
+					<d-content>...</d-content>				
+				</d>
+			</scene-content>
+		</scene>
+	</scenes>
+</chapter-content>	

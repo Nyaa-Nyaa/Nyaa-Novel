@@ -1,0 +1,24 @@
+<Grid.RenderTransform >
+	<TranslateTransform Y ="0" X ="0"/>
+</Grid.RenderTransform >
+<Grid.Triggers >
+	<EventTrigger RoutedEvent ="FrameworkElement.Loaded">
+		<BeginStoryboard >
+			<Storyboard RepeatBehavior ="00:00:01" SpeedRatio ="15" >
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty ="Left">
+					<SplineDoubleKeyFrame KeyTime ="00:00:00.1000000" Value ="-10"/>
+					<SplineDoubleKeyFrame KeyTime ="00:00:00.3000000" Value ="0"/>
+					<SplineDoubleKeyFrame KeyTime ="00:00:00.5000000" Value ="10"/>
+					<SplineDoubleKeyFrame KeyTime ="00:00:00.7000000" Value ="0"/>
+				</DoubleAnimationUsingKeyFrames >
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty ="Top">
+					<SplineDoubleKeyFrame KeyTime ="00:00:00.1000000" Value ="-10"/>
+					<SplineDoubleKeyFrame KeyTime ="00:00:00.3000000" Value ="-10"/>
+					<SplineDoubleKeyFrame KeyTime ="00:00:00.5000000" Value ="10"/>
+					<SplineDoubleKeyFrame KeyTime ="00:00:00.7000000" Value ="10"/>
+					<SplineDoubleKeyFrame KeyTime ="00:00:00.9000000" Value ="0"/>
+				</DoubleAnimationUsingKeyFrames >
+			</Storyboard >
+		</BeginStoryboard >
+	</EventTrigger >
+</Grid.Triggers >

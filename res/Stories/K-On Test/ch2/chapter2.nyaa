@@ -1,0 +1,55 @@
+﻿<?xml version = "1.0" encoding="UTF-8"?>
+
+<chapter-content>
+	<chapter-file>true</chapter-file>
+	<scenes>
+		<scene>
+			<transition>fade</transition>
+			<background>./loading.jpg</background>
+			<scene-content>
+				<d>
+					<char-img>./img/char/yui-excited.png</char-img>
+					<char-pos>right</char-pos>
+					<char-view>normal</char-view>
+					<selection-screen>
+						<choice>
+							<text>You give the paper to Sawako-sensei</text>
+							<flag>shy</flag>
+						</choice>
+						<choice>
+							<text>You proudly announce your name</text>
+							<flag>stuckup</flag>
+						</choice>
+						<choice>
+							<text>You mutter some non-sense</text>
+							<flag>mysterious</flag>
+						</choice>
+						<choice>
+							<text>Pretend not to care</text>
+							<flag>tsundre</flag>
+						</choice>
+					</selection-screen>
+					<shadow>false</shadow>
+					<name></name>
+					<d-content>How do you respond?</d-content>				
+				</d>
+				<d>
+					<char-img>./img/char/yui-excited.png</char-img>
+					<char-pos>right</char-pos>
+					<char-view>normal</char-view>
+					<shadow>false</shadow>
+					<name></name>
+					<d-content>Entering chpater 2  temporary place holder</d-content>				
+				</d>
+				<d>
+					<char-img>./img/char/yui-excited.png</char-img>
+					<char-pos>right</char-pos>
+					<char-view>normal</char-view>
+					<shadow>true</shadow>
+					<name>ゆい (Yui)</name>
+					<d-content>...</d-content>				
+				</d>
+			</scene-content>
+		</scene>
+	</scenes>
+</chapter-content>	

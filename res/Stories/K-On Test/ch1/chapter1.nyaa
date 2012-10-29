@@ -1,0 +1,156 @@
+﻿<?xml version = "1.0" encoding="UTF-8"?>
+<chapter-content>
+	<chapter-file>true</chapter-file>
+	<scenes>
+		<scene>
+			<transition>fade</transition>
+			<background>.\img\bg\highschool.jpg</background>
+			<scene-content>
+				<d>
+					<char-img>.\img\char\nochar.png</char-img>
+					<char-pos>right</char-pos>
+					<char-view>normal</char-view>
+					<shadow>false</shadow>
+					<name></name>
+					<d-content>It was a fine Spring day, with the Sakura Trees in full bloom. With Sakuragaoka High School already two weeks into the year, you had enrolled as a senior into the school.  As you are casually strolling to school, you ponder to yourself regarding how your school life will pursue.  As you are near to arrival, you don’t expect much to occur as the other students have already had time to settle in.</d-content>				
+				</d>
+				<d>
+					<char-img>.\img\char\nochar.png</char-img>
+					<char-pos>right</char-pos>
+					<char-view>normal</char-view>
+					<shadow>true</shadow>
+					<name></name>
+					<d-content>You see a girl running down the sidewalk on the other side of the road.</d-content>				
+				</d>
+				<d>
+					<char-img>.\img\char\nochar.png</char-img>
+					<char-pos>right</char-pos>
+					<char-view>normal</char-view>
+					<shadow>true</shadow>
+					<name>ゆい (Yui)</name>
+					<d-content>Even though it was already two weeks into the school year, Yui is, as always, unprepared for the morning and is rushing to school.  Due to being late, she doesn’t expect to bump into any fellow classmates, and continues to recklessly rush down the sidewalk.  Not paying attention to her surroundings, she runs straight into you, knocking you over.</d-content>				
+				</d>
+				<d>
+					<char-img>.\img\char\yui-excited.png</char-img>
+					<char-pos>right</char-pos>
+					<char-view>normal</char-view>
+					<shadow>true</shadow>
+					<name>ゆい (Yui)</name>
+					<d-content>“Ow... Oh, I’m sorry! Here let me give you a hand!”</d-content>				
+				</d>
+				<d>
+					<char-img>.\img\char\yui-excited.png</char-img>
+					<char-pos>right</char-pos>
+					<char-view>normal</char-view>
+					<shadow>true</shadow>
+					<name></name>
+					<d-content>Yui extends a hand and helps you up. She dusts off her skirt and looks at you properly for the first time.</d-content>				
+				</d>
+				<d>
+					<char-img>.\img\char\yui-excited.png</char-img>
+					<char-pos>right</char-pos>
+					<char-view>normal</char-view>
+					<shadow>true</shadow>
+					<name>ゆい (Yui)</name>
+					<d-content>“Are you okay?”</d-content>				
+				</d>
+				<d>
+					<char-img>.\img\char\yui-excited.png</char-img>
+					<char-pos>right</char-pos>
+					<char-view>normal</char-view>
+					<shadow>true</shadow>
+					<name></name>
+					<d-content>You nod your head signifing yes.</d-content>				
+				</d>
+				<d>
+					<char-img>.\img\char\yui-excited.png</char-img>
+					<char-pos>right</char-pos>
+					<char-view>normal</char-view>
+					<shadow>true</shadow>
+					<name></name>
+					<d-content>Yui perks up in realizing that...</d-content>				
+				</d>
+				<d>
+					<char-img>.\img\char\yui-excited.png</char-img>
+					<char-pos>right</char-pos>
+					<char-view>normal</char-view>
+					<shadow>true</shadow>
+					<name>ゆい (Yui)</name>
+					<d-content>“Oh wait! I’m sorry, are you new here?”</d-content>				
+				</d>
+				<d>
+					<char-img>.\img\char\yui-excited.png</char-img>
+					<char-pos>right</char-pos>
+					<char-view>normal</char-view>
+					<shadow>true</shadow>
+					<name></name>
+					<d-content>You nod. Yui’s eyes sparkle as she gasps.</d-content>				
+				</d>
+				<d>
+					<char-img>.\img\char\yui-excited.png</char-img>
+					<char-pos>right</char-pos>
+					<char-view>normal</char-view>
+					<shadow>true</shadow>
+					<name>ゆい (Yui)</name>
+					<d-content>“That means I can show you around! Oh no, wait, we need to get to class first!”</d-content>				
+				</d>
+				<d>
+					<char-img>.\img\char\yui-excited.png</char-img>
+					<char-pos>right</char-pos>
+					<char-view>normal</char-view>
+					<shadow>true</shadow>
+					<name></name>
+					<d-content>You look at her watch in confusement.</d-content>				
+				</d>
+				<d>
+					<char-img>.\img\char\yui-excited.png</char-img>
+					<char-pos>right</char-pos>
+					<char-view>normal</char-view>
+					<shadow>true</shadow>
+					<name>ゆい (Yui)</name>
+					<d-content>“Eeeeeh? You mean It’s only 7:00?”</d-content>				
+				</d>
+				<d>
+					<char-img>.\img\char\yui-excited.png</char-img>
+					<char-pos>right</char-pos>
+					<char-view>normal</char-view>
+					<shadow>true</shadow>
+					<name></name>
+					<d-content>Yui quickly realizes that she had dropped her precious guitar on to the ground. She hastily moves towards the guitar, picks it up, and opens the case. Which revealed a Gibson Les Paul sitting snugly within.</d-content>				
+				</d>
+				<d>
+					<char-img>.\img\char\yui-excited.png</char-img>
+					<char-pos>right</char-pos>
+					<char-view>normal</char-view>
+					<shadow>true</shadow>
+					<name>ゆい (Yui)</name>
+					<d-content>“Thank goodness. I was worried you’d been hurt Giitah- Oh!”</d-content>				
+				</d>
+				<d>
+					<char-img>.\img\char\yui-excited.png</char-img>
+					<char-pos>right</char-pos>
+					<char-view>normal</char-view>
+					<shadow>true</shadow>
+					<name></name>
+					<d-content>Yui notices that you are still standing there in puzzled and mildly amused.</d-content>				
+				</d>
+				<d>
+					<char-img>.\img\char\yui-excited.png</char-img>
+					<char-pos>right</char-pos>
+					<char-view>normal</char-view>
+					<shadow>true</shadow>
+					<name>ゆい (Yui)</name>
+					<d-content>“My name’s Hirasawa Yui! Oh right, just call me Yui! Come on! I’ll show you around!”</d-content>				
+				</d>
+				<d>
+					<char-img>.\img\char\yui-excited.png</char-img>
+					<char-pos>right</char-pos>
+					<char-view>normal</char-view>
+					<shadow>true</shadow>
+					<name></name>
+					<d-content>Yui proceeds to grab your hand and forcibly drags you towards the school. Looks like life at Sakuragaoka High won’t be so boring after all...</d-content>				
+				</d>
+			</scene-content>
+		</scene>
+	</scenes>
+</chapter-content>	
