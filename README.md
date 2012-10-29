@@ -18,6 +18,8 @@ Hello, My name is Mio-chan... Well, no, not really. I just watch too much anime 
 Done/Working on/To-do
 ---------------------
 
+For up to date info, use the issues tab.
+
 Done:
 - General XML loading and creating objects based on various parts
   - Heirarchy: 
