@@ -32,3 +32,6 @@ M:\Documents\Visual Studio 2012\Projects\NyaaNovelWPF\NyaaNovelWPF\obj\Debug\Nya
 M:\Documents\Visual Studio 2012\Projects\NyaaNovelWPF\NyaaNovelWPF\obj\Debug\NyaaNovelWPF.g.resources
 M:\Documents\Visual Studio 2012\Projects\NyaaNovelWPF\NyaaNovelWPF\obj\Debug\NyaaNovelWPF.exe
 M:\Documents\Visual Studio 2012\Projects\NyaaNovelWPF\NyaaNovelWPF\obj\Debug\NyaaNovelWPF.pdb
+F:\Users\Pavel\Documents\GitHub\Nyaa-Novel\src\NyaaNovelWPF\bin\Debug\NyaaNovelWPF.exe.config
+F:\Users\Pavel\Documents\GitHub\Nyaa-Novel\src\NyaaNovelWPF\obj\Debug\NyaaNovelWPF.exe
+F:\Users\Pavel\Documents\GitHub\Nyaa-Novel\src\NyaaNovelWPF\obj\Debug\NyaaNovelWPF.pdb
