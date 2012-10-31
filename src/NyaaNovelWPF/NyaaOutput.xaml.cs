@@ -46,7 +46,7 @@ namespace NyaaNovelWPF
             nextPage();
         }
 
-        private void setBackgroundImage(String imagePath, NyaaDialog CurrentDialog)
+        private void Update(String imagePath, NyaaDialog CurrentDialog)
         {
             if (CurrentBGPath.CompareTo(imagePath) != 0)
             {
@@ -61,8 +61,6 @@ namespace NyaaNovelWPF
                     {
                         setMainText(CurrentDialog.getDialog());
                         setNameText(CurrentDialog.getTitle());
-                        animateNameText(CurrentDialog.getTitle().Length);
-                        animateDialogText(CurrentDialog.getDialog().Length);
                         setCharacterImage(CurrentDialog.getCharacterImage());
                         setShadow(CurrentDialog.getShadow());
                         NyaaDebug.addToConsole("Switching Backgrounds");
@@ -84,8 +82,6 @@ namespace NyaaNovelWPF
 
                 setMainText(CurrentDialog.getDialog());
                 setNameText(CurrentDialog.getTitle());
-                animateNameText(CurrentDialog.getTitle().Length);
-                animateDialogText(CurrentDialog.getDialog().Length);
                 setCharacterImage(CurrentDialog.getCharacterImage());
                 setShadow(CurrentDialog.getShadow());
             }
@@ -123,11 +119,31 @@ namespace NyaaNovelWPF
         private void setMainText(String text)
         {
             MainText.Text = text;
+            if (text.CompareTo("") != 0 && TextBG.Opacity == 0)
+            {
+                DoubleAnimation anim1 = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.1));
+                TextBG.BeginAnimation(Image.OpacityProperty, anim1);
+            }
+            if (text.CompareTo("") == 0 && TextBG.Opacity == 1)
+            {
+                DoubleAnimation anim1 = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(0.1));
+                TextBG.BeginAnimation(Image.OpacityProperty, anim1);
+            }
         }
 
         private void setNameText(String text)
         {
             NameText.Content = text;
+            if (text.CompareTo("") != 0 && NameBG.Opacity == 0)
+            {
+                DoubleAnimation anim1 = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.1));
+                NameBG.BeginAnimation(Image.OpacityProperty, anim1);
+            }
+            if (text.CompareTo("") == 0 && NameBG.Opacity == 1)
+            {
+                DoubleAnimation anim1 = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(0.1));
+                NameBG.BeginAnimation(Image.OpacityProperty, anim1);
+            }
         }
 
         private void setShadow(Boolean visibility)
@@ -146,15 +162,15 @@ namespace NyaaNovelWPF
 
         private void setCharacterAlignment(String location)
         {
-            if (location == "right")
+            if (location.CompareTo("right") == 0)
             {
                 CharacterImage.HorizontalAlignment = HorizontalAlignment.Right;
             }
-            if (location == "left")
+            if (location.CompareTo("left") == 0)
             {
                 CharacterImage.HorizontalAlignment = HorizontalAlignment.Left;
             }
-            if (location == "center")
+            if (location.CompareTo("center") == 0)
             {
                 CharacterImage.HorizontalAlignment = HorizontalAlignment.Center;
             }
@@ -163,7 +179,7 @@ namespace NyaaNovelWPF
                 CharacterImage.HorizontalAlignment = HorizontalAlignment.Right;
             }
         }
-
+        /*
         private void animateNameText(int Length)
         {
             int target;
@@ -237,7 +253,7 @@ namespace NyaaNovelWPF
             mainX = newX;
             textDialogX = targetText;
         }
-
+        
         public void MoveTo(Image target, double newX, double newY, double oldX, double oldY)
         {
             
@@ -250,14 +266,14 @@ namespace NyaaNovelWPF
             trans.BeginAnimation(TranslateTransform.YProperty, anim1);
             trans.BeginAnimation(TranslateTransform.XProperty, anim2);
         }
-
+      */
         private void nextPage()
         {
             
             NyaaDialog CurrentDialog = Novel.nextText();
             if (CurrentDialog != null)
             {
-                setBackgroundImage(Novel.getCurrentBackground(), CurrentDialog);
+                Update(Novel.getCurrentBackground(), CurrentDialog);
                 
             }
             else

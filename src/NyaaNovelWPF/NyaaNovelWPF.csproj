@@ -103,6 +103,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="K-On Test Story\ch1\chapter1.nyaa" />
+    <None Include="K-On Test Story\ch1\img\bg\Thumbs.db" />
+    <None Include="K-On Test Story\ch1\img\char\Thumbs.db" />
+    <None Include="K-On Test Story\ch1\Thumbs.db" />
+    <None Include="K-On Test Story\ch2\chapter2.nyaa" />
+    <None Include="K-On Test Story\ch3\chapter3.nyaa" />
+    <None Include="K-On Test Story\ch3\Thumbs.db" />
+    <None Include="K-On Test Story\common\img\text\dialog.psd" />
+    <None Include="K-On Test Story\common\img\text\Thumbs.db" />
+    <None Include="K-On Test Story\common\img\Thumbs.db" />
+    <None Include="K-On Test Story\k-onSchool.nyaa" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -111,6 +122,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="K-On Test Story\ch1\img\bg\highschool.jpg" />
+    <Resource Include="K-On Test Story\ch1\img\char\nochar.png" />
+    <Resource Include="K-On Test Story\ch1\img\char\yui-excited.png" />
+    <Resource Include="K-On Test Story\ch1\loading.jpg" />
+    <Resource Include="K-On Test Story\ch2\loading.jpg" />
+    <Resource Include="K-On Test Story\ch2\new  2.xml" />
+    <Resource Include="K-On Test Story\ch3\img\bg\highschool.jpg" />
+    <Resource Include="K-On Test Story\ch3\loading.jpg" />
+    <Resource Include="K-On Test Story\common\img\shadow.png" />
+    <Resource Include="K-On Test Story\common\img\text\dialog.png" />
+    <Resource Include="K-On Test Story\common\img\text\name.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="K-On Test Story\ch3\img\char\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

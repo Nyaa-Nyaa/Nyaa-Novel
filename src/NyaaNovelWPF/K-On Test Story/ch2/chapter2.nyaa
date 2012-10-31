@@ -46,8 +46,16 @@
 					<char-pos>right</char-pos>
 					<char-view>normal</char-view>
 					<shadow>true</shadow>
-					<name>ゆい (Yui)</name>
-					<d-content>...</d-content>				
+					<name></name>
+					<d-content></d-content>				
+				</d>
+				<d>
+					<char-img>./img/char/yui-excited.png</char-img>
+					<char-pos>right</char-pos>
+					<char-view>normal</char-view>
+					<shadow>false</shadow>
+					<name></name>
+					<d-content>The previous was a test for full blanked scenes</d-content>				
 				</d>
 			</scene-content>
 		</scene>
