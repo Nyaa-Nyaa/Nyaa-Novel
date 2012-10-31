@@ -16,6 +16,7 @@ namespace NyaaNovelWPF
         XmlNodeList Choices;
         Boolean userInteracting;
         Boolean Shadow;
+        NyaaChoice choiceObj;
 
         public NyaaDialog(String inDialog, String inTitle, String inCharacterImage, String inCharacterPosition, String inCharacterView, Boolean inShadow)
         {
@@ -36,13 +37,18 @@ namespace NyaaNovelWPF
             CharacterPosition = inCharacterPosition;
             CharacterView = inCharacterView;
             Shadow = inShadow;
+            choiceObj = new NyaaChoice(inChoices);
             userInteracting = true;
-            Choices = inChoices;
         }
 
         public String getDialog()
         {
             return Dialog;
+        }
+
+        public NyaaChoice getChoices()
+        {
+            return choiceObj;
         }
 
         public String getTitle()

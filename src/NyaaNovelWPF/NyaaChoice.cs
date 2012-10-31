@@ -7,7 +7,7 @@ using System.Xml;
 
 namespace NyaaNovelWPF
 {
-    class NyaaChoice
+    public class NyaaChoice
     {
         String[] descriptions;
         String[] flags;

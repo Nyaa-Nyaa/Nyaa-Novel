@@ -30,6 +30,7 @@ namespace NyaaNovelWPF
         double textNameX;
         double textDialogX;
         Boolean textAnimating;
+        NyaaDialog thisDialog;
 
         public NyaaOutput(NyaaNovel novelToControl, DebugConsole NyaaDebugPointer)
         {
@@ -60,6 +61,10 @@ namespace NyaaNovelWPF
                     board.Completed += delegate
                     {
                         setMainText(CurrentDialog.getDialog());
+                        if (CurrentDialog.getUserInteracting())
+                        {
+                            displayChoices(CurrentDialog.getChoices());
+                        }
                         setNameText(CurrentDialog.getTitle());
                         setCharacterImage(CurrentDialog.getCharacterImage());
                         setShadow(CurrentDialog.getShadow());
@@ -79,11 +84,27 @@ namespace NyaaNovelWPF
             }
             else
             {
-
                 setMainText(CurrentDialog.getDialog());
+                if (CurrentDialog.getUserInteracting())
+                {
+                    displayChoices(CurrentDialog.getChoices());
+                }
                 setNameText(CurrentDialog.getTitle());
                 setCharacterImage(CurrentDialog.getCharacterImage());
                 setShadow(CurrentDialog.getShadow());
+            }
+        }
+
+        private void displayChoices(NyaaChoice nyaaChoice)
+        {
+            if (nyaaChoice.getAmount() <= 4)
+            {
+                Button[] selectors = {Choice1,Choice2,Choice3,Choice4};
+                Choices.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                NyaaDebug.addToConsole("FATAL: More than 4 choices! NOT YET IMPLEMENTED!");
             }
         }
 
@@ -96,17 +117,17 @@ namespace NyaaNovelWPF
                     DoubleAnimation anim1 = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(1));
                     Storyboard board = new Storyboard();
                     board.Children.Add(anim1);
-                    Storyboard.SetTarget(anim1, CharacterImage);
+                    Storyboard.SetTarget(anim1, SceneSwitcher);
                     Storyboard.SetTargetProperty(anim1, new PropertyPath("(Opacity)"));
                     board.Completed += delegate
                     {
                         NyaaDebug.addToConsole("Switching Characters and showing them");
                         // Create image element to set as icon on the menu element
-                        BitmapImage bmImage = new BitmapImage();
-                        bmImage.BeginInit();
-                        bmImage.UriSource = new Uri(imagePath, UriKind.Absolute);
-                        bmImage.EndInit();
-                        CharacterImage.Source = bmImage;
+                        BitmapImage charImage = new BitmapImage();
+                        charImage.BeginInit();
+                        charImage.UriSource = new Uri(imagePath, UriKind.Absolute);
+                        charImage.EndInit();
+                        CharacterImage.Source = charImage;
                         CurrentCharPath = imagePath;
                         DoubleAnimation anim2 = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(1));
                         CharacterImage.BeginAnimation(Image.OpacityProperty, anim2);
@@ -179,102 +200,14 @@ namespace NyaaNovelWPF
                 CharacterImage.HorizontalAlignment = HorizontalAlignment.Right;
             }
         }
-        /*
-        private void animateNameText(int Length)
-        {
-            int target;
-            if (Length == 0)
-            { 
-                target = -1280; 
-            }
-            else
-            { 
-                target = Length * 10 + 50; 
-            }
 
-            int targetText;
-            if (Length == 0)
-            {
-                targetText = -250;
-            }
-            else
-            {
-                targetText = 10;
-            }
-
-            NyaaDebug.addToConsole("Notice: Target Aimation: " + target + " Old frame: " + nameX);
-            var left = nameX;
-            TranslateTransform trans = new TranslateTransform();
-            NameBG.RenderTransform = trans;
-            TranslateTransform textTrans = new TranslateTransform();
-            NameText.RenderTransform = textTrans;
-            double newX = target;
-            DoubleAnimation anim2 = new DoubleAnimation(nameX, newX, TimeSpan.FromSeconds(.4));
-            DoubleAnimation anim3 = new DoubleAnimation(textNameX, targetText, TimeSpan.FromSeconds(.5));
-            trans.BeginAnimation(TranslateTransform.XProperty, anim2);
-            textTrans.BeginAnimation(TranslateTransform.XProperty, anim3);
-            nameX = newX;
-            textNameX = targetText;
-        }
-
-        private void animateDialogText(int Length)
-        {
-            int target;
-            if (Length == 0)
-            {
-                target = -1280;
-            }
-            else
-            {
-                target = 0;
-            }
-
-            int targetText;
-            if (Length == 0)
-            {
-                targetText = -1280;
-            }
-            else
-            {
-                targetText = 5;
-            }
-
-            NyaaDebug.addToConsole("Notice: Target Aimation: " + target + " Old frame: " + nameX);
-            var left = mainX;
-            TranslateTransform trans = new TranslateTransform();
-            TextBG.RenderTransform = trans;
-            TranslateTransform textTrans = new TranslateTransform();
-            MainText.RenderTransform = textTrans;
-            double newX = target;
-            DoubleAnimation anim2 = new DoubleAnimation(mainX, newX, TimeSpan.FromSeconds(.4));
-            trans.BeginAnimation(TranslateTransform.XProperty, anim2);
-            DoubleAnimation anim3 = new DoubleAnimation(textDialogX, targetText, TimeSpan.FromSeconds(.5));
-            textTrans.BeginAnimation(TranslateTransform.XProperty, anim3);
-            mainX = newX;
-            textDialogX = targetText;
-        }
-        
-        public void MoveTo(Image target, double newX, double newY, double oldX, double oldY)
-        {
-            
-            var top = oldY;
-            var left = oldX;
-            TranslateTransform trans = new TranslateTransform();
-            target.RenderTransform = trans;
-            DoubleAnimation anim1 = new DoubleAnimation(0, newY - top, TimeSpan.FromSeconds(.25));
-            DoubleAnimation anim2 = new DoubleAnimation(0, newX - left, TimeSpan.FromSeconds(.25));
-            trans.BeginAnimation(TranslateTransform.YProperty, anim1);
-            trans.BeginAnimation(TranslateTransform.XProperty, anim2);
-        }
-      */
         private void nextPage()
         {
             
-            NyaaDialog CurrentDialog = Novel.nextText();
-            if (CurrentDialog != null)
+            thisDialog = Novel.nextText();
+            if (thisDialog != null)
             {
-                Update(Novel.getCurrentBackground(), CurrentDialog);
-                
+                Update(Novel.getCurrentBackground(), thisDialog);
             }
             else
             {
@@ -308,22 +241,34 @@ namespace NyaaNovelWPF
 
         private void Image_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
-            nextPage();
+            triggerNextPage();
         }
 
         private void MainText_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            nextPage();
+            triggerNextPage();
         }
 
         private void CharacterImage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            nextPage();
+            triggerNextPage();
         }
 
         private void SceneSwitcher_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            nextPage();
+            triggerNextPage();
+        }
+
+        private void triggerNextPage()
+        {
+            if (thisDialog.getUserInteracting())
+            {
+
+            }
+            else
+            {
+                nextPage();
+            }
         }
     }
 }

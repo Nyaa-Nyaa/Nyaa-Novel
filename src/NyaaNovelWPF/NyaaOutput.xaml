@@ -13,7 +13,7 @@
         <Image x:Name="TextBG" HorizontalAlignment="Left" Height="240" VerticalAlignment="Top" Width="1280" MouseDown="Image_MouseDown_1" Canvas.Left="-388" Canvas.Top="-70" Margin="0,473,0,0" Stretch="Fill"/>
         <TextBlock x:Name="MainText" HorizontalAlignment="Left" Height="169" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="1097" FontSize="22" MouseDown="MainText_MouseDown" Canvas.Left="10" Canvas.Top="53" Margin="89,544,0,0"/>
        
-        <Grid x:Name="Choices" Margin="26,585,121,60" Visibility="Hidden">
+        <Grid x:Name="Choices" Margin="69,603,67,10" Width="1144" Visibility="Hidden">
             <Button x:Name="Choice1" Content="1" HorizontalAlignment="Left" Margin="0,0,0,0" Width="552" Height="30" VerticalAlignment="Top"/>
             <Button x:Name="Choice2" Content="2" HorizontalAlignment="Left" Margin="0,40,0,0" Width="552" Height="30" VerticalAlignment="Top"/>
             <Button x:Name="Choice3" Content="3" HorizontalAlignment="Left" Margin="581,0,0,0" Width="552" Height="30" VerticalAlignment="Top"/>
