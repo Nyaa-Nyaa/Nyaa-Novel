@@ -66,6 +66,7 @@ namespace NyaaNovelWPF
                     NyaaDebug.addToConsole("Notice: Found a selection screen");
                     XmlNodeList selections = dialog["selection-screen"].ChildNodes;
                     Dialogs[dialogNumber] = new NyaaDialog(dialog["d-content"].InnerText, dialog["name"].InnerText, getResourceLocation(dialog["char-img"].InnerText), dialog["char-pos"].InnerText, dialog["char-view"].InnerText, boolStrConvert(dialog["shadow"].InnerText), selections);
+                    dialogNumber++;
                 }
             }
         }

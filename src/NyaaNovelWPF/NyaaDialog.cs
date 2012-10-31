@@ -55,6 +55,11 @@ namespace NyaaNovelWPF
             return CharacterImage;
         }
 
+        public bool getUserInteracting()
+        {
+            return userInteracting;
+        }
+
         public String getCharacterView()
         {
             return CharacterView;
