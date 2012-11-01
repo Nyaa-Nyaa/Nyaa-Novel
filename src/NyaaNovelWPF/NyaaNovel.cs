@@ -34,7 +34,7 @@ namespace NyaaNovelWPF
             NyaaDebug = new DebugConsole();
             NyaaDebug.Show();
             NyaaDebug.addToConsole("NyaaNovel Pre-Alpha 0.0.1a Console Loaded");
-            OutputWindow = new NyaaOutput(this, NyaaDebug);
+            
             NyaaDebug.addToConsole("Notice: Loaded Output Window!");
             NyaaDebug.addToConsole("\n ------| Root File Search |------");
             // load main xml
@@ -64,7 +64,7 @@ namespace NyaaNovelWPF
                 {
                     //Set Resources
                     XmlNodeList ResourceQuery = rootNyaaStoryFile.SelectNodes("//resources");
-                    OutputWindow.setMainResources(getResourceLocation(ResourceQuery[0]["dialog-bg"].InnerText), getResourceLocation(ResourceQuery[0]["name-bg"].InnerText), getResourceLocation(ResourceQuery[0]["shadow"].InnerText));
+                    String[] ResourceOut = { getResourceLocation(ResourceQuery[0]["dialog-bg"].InnerText), getResourceLocation(ResourceQuery[0]["name-bg"].InnerText), getResourceLocation(ResourceQuery[0]["shadow"].InnerText) };
                     //Split into objects
                     XmlNodeList tempList = rootNyaaStoryFile.SelectNodes("//chapters/chapter");
                     NyaaDebug.addToConsole("Notice: Chapter Query Success! Number of Chapters reported: " + tempList.Count);
@@ -97,8 +97,11 @@ namespace NyaaNovelWPF
                         }
                         NyaaChapters[chapterNo] = new NyaaChapter(title, chapterLocation, loadingSplash, rootDirectory, NyaaDebug);
                         NyaaDebug.addToConsole("Notice: Back in the main thread!");
+
                         chapterNo++;
                     }
+                    OutputWindow = new NyaaOutput(this, NyaaDebug);
+                    OutputWindow.setMainResources(ResourceOut[0],ResourceOut[1],ResourceOut[2]);
                 }
                 else
                 {
@@ -159,10 +162,10 @@ namespace NyaaNovelWPF
         public NyaaDialog nextText()
         {
             //code to progress to next page
-            //NyaaDebug.addToConsole("Next Page");
             NyaaDialog CurrentPage = nextDialog();
             if (CurrentPage != null)
             {
+                
                 return CurrentPage;
             }
             return null;

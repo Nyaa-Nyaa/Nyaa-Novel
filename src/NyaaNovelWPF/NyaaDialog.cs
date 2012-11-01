@@ -13,7 +13,6 @@ namespace NyaaNovelWPF
         String CharacterImage;
         String CharacterView;
         String CharacterPosition;
-        XmlNodeList Choices;
         Boolean userInteracting;
         Boolean Shadow;
         NyaaChoice choiceObj;

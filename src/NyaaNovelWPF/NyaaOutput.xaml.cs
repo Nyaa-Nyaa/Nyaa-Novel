@@ -25,10 +25,6 @@ namespace NyaaNovelWPF
         DebugConsole NyaaDebug;
         String CurrentCharPath;
         String CurrentBGPath;
-        double nameX;
-        double mainX;
-        double textNameX;
-        double textDialogX;
         Boolean textAnimating;
         NyaaDialog thisDialog;
 
@@ -37,14 +33,24 @@ namespace NyaaNovelWPF
             InitializeComponent();
             NyaaDebug = NyaaDebugPointer;
             Novel = novelToControl;
-            mainX = 0;
-            nameX = 0;
-            textNameX = 10;
-            textDialogX = 10;
             CurrentCharPath = "";
             CurrentBGPath = "";
             textAnimating = false;
-            nextPage();
+            startStory();
+        }
+
+        private void startStory()
+        {
+             thisDialog = Novel.nextText();
+             CurrentBGPath = Novel.getCurrentBackground();
+             BitmapImage bmImage = new BitmapImage();
+             bmImage.BeginInit();
+             bmImage.UriSource = new Uri(CurrentBGPath, UriKind.Absolute);
+             bmImage.EndInit();
+             Background.Source = bmImage;
+             DoubleAnimation anim2 = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(2));
+             SceneSwitcher.BeginAnimation(Image.OpacityProperty, anim2);
+             Update(Novel.getCurrentBackground(), thisDialog);
         }
 
         private void Update(String imagePath, NyaaDialog CurrentDialog)
@@ -203,16 +209,28 @@ namespace NyaaNovelWPF
 
         private void nextPage()
         {
-            
+            NyaaDebug.addToConsole("Flipping Page!");
             thisDialog = Novel.nextText();
+            
             if (thisDialog != null)
             {
-                Update(Novel.getCurrentBackground(), thisDialog);
+                if (thisDialog.getUserInteracting())
+                {
+                    Update(Novel.getCurrentBackground(), thisDialog);
+                    displayChoices(thisDialog.getChoices());
+                }
+                else
+                {
+                    Update(Novel.getCurrentBackground(), thisDialog);
+                }
             }
             else
             {
                 finishNovel();
             }
+           
+           
+            
         }
 
         public void setMainResources(String dialogBGPath, String nameBGPath, String ShadowPath)
@@ -261,14 +279,7 @@ namespace NyaaNovelWPF
 
         private void triggerNextPage()
         {
-            if (thisDialog.getUserInteracting())
-            {
-
-            }
-            else
-            {
-                nextPage();
-            }
+            nextPage();
         }
     }
 }
