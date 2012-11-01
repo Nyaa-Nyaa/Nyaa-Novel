@@ -123,7 +123,7 @@ namespace NyaaNovelWPF
                     DoubleAnimation anim1 = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(1));
                     Storyboard board = new Storyboard();
                     board.Children.Add(anim1);
-                    Storyboard.SetTarget(anim1, SceneSwitcher);
+                    Storyboard.SetTarget(anim1, CharacterImage);
                     Storyboard.SetTargetProperty(anim1, new PropertyPath("(Opacity)"));
                     board.Completed += delegate
                     {
