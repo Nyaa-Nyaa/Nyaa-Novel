@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Collections;
 
 namespace NyaaNovelWPF
 {
@@ -25,8 +26,18 @@ namespace NyaaNovelWPF
         DebugConsole NyaaDebug;
         String CurrentCharPath;
         String CurrentBGPath;
-        Boolean textAnimating;
+        Boolean Animating;
         NyaaDialog thisDialog;
+        ArrayList flags = new ArrayList();
+
+        /* 
+         * ===========================================
+         * Class: NyaaOutput
+         * Description:
+         * An object created by NyaaNovel that contains user interaction logic
+         * Generates interface via WPF
+         * ===========================================
+         */
 
         public NyaaOutput(NyaaNovel novelToControl, DebugConsole NyaaDebugPointer)
         {
@@ -35,9 +46,19 @@ namespace NyaaNovelWPF
             Novel = novelToControl;
             CurrentCharPath = "";
             CurrentBGPath = "";
-            textAnimating = false;
+            Animating = true;
             startStory();
         }
+
+        /* -------------------------------------------
+         * Method Group: Story Update Methods
+         * Changing Dialog methods
+         * -------------------------------------------
+         */
+
+        /* Method: startStory()
+         * Descrtiption: First update for the novel occurs here
+         */ 
 
         private void startStory()
         {
@@ -83,8 +104,17 @@ namespace NyaaNovelWPF
                         Background.Source = bmImage;
                         CurrentBGPath = imagePath;
                         DoubleAnimation anim2 = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(2));
-                        SceneSwitcher.BeginAnimation(Image.OpacityProperty, anim2);
+                        Storyboard board2 = new Storyboard();
+                        board2.Children.Add(anim2);
+                        Storyboard.SetTarget(anim2, SceneSwitcher);
+                        Storyboard.SetTargetProperty(anim1, new PropertyPath("(Opacity)"));
+                        board2.Completed += delegate
+                        {
+                            Animating = false;
+                        };
+                        board2.Begin();
                     };
+                    Animating = true;
                     board.Begin();
                 }
             }
@@ -101,18 +131,106 @@ namespace NyaaNovelWPF
             }
         }
 
+        private void nextPage()
+        {
+            NyaaDebug.addToConsole("Flipping Page!");
+            thisDialog = Novel.nextText();
+            
+            if (thisDialog != null)
+            {
+                if (thisDialog.getUserInteracting())
+                {
+                    Update(Novel.getCurrentBackground(), thisDialog);
+                    displayChoices(thisDialog.getChoices());
+                }
+                else
+                {
+                    Update(Novel.getCurrentBackground(), thisDialog);
+                }
+            }
+            else
+            {
+                finishNovel();
+            }   
+        }
+ 
+        private void finishNovel()
+        {
+            this.Hide();
+        }
+
+        private void triggerNextPage()
+        {
+            if (!thisDialog.getUserInteracting() || !Animating )
+            {
+                nextPage();
+            }
+        }
+
+        /* 
+         * -------------------------------------------
+         * Method Group: Story-based Methods
+         * Get and set story parameters
+         * -------------------------------------------
+         */
+
+        private void addFlag(String flag)
+        {
+            flags.Add(flag);
+            NyaaDebug.addToConsole("Added flag: " + flag);
+        }
+
+        private Boolean checkFlags(String[] flagsToCheck)
+        {
+            Boolean match = true;
+            foreach (String flag in flagsToCheck)
+            {
+                if (!flags.Contains(flag))
+                {
+                    match = false;
+                }
+            }
+            return match;
+        }
+
+        /* -------------------------------------------
+         * Method Group: Interface Updaters
+         * Updates Various Texts, Panels, and Images
+         * Also does Effects
+         * -------------------------------------------
+         */
+
+        private void hideAllButtons()
+        {
+            Button[] selectors = { Choice1, Choice2, Choice3, Choice4 };
+            foreach (Button buttonSel in selectors)
+            {
+                buttonSel.Visibility = Visibility.Hidden;
+            }
+            Choices.Visibility = Visibility.Hidden;
+        }
+
         private void displayChoices(NyaaChoice nyaaChoice)
         {
             if (nyaaChoice.getAmount() <= 4)
             {
                 Button[] selectors = {Choice1,Choice2,Choice3,Choice4};
+                String[] buttonText = thisDialog.getChoices().getDescriptions();
                 Choices.Visibility = Visibility.Visible;
+                int index = 0;
+                foreach (String text in buttonText)
+                {
+                    selectors[index].Content = text;
+                    selectors[index].Visibility = Visibility.Visible;
+                    index++;
+                }
             }
             else
             {
                 NyaaDebug.addToConsole("FATAL: More than 4 choices! NOT YET IMPLEMENTED!");
             }
         }
+
 
         private void setCharacterImage(String imagePath)
         {
@@ -207,31 +325,7 @@ namespace NyaaNovelWPF
             }
         }
 
-        private void nextPage()
-        {
-            NyaaDebug.addToConsole("Flipping Page!");
-            thisDialog = Novel.nextText();
-            
-            if (thisDialog != null)
-            {
-                if (thisDialog.getUserInteracting())
-                {
-                    Update(Novel.getCurrentBackground(), thisDialog);
-                    displayChoices(thisDialog.getChoices());
-                }
-                else
-                {
-                    Update(Novel.getCurrentBackground(), thisDialog);
-                }
-            }
-            else
-            {
-                finishNovel();
-            }
-           
-           
-            
-        }
+
 
         public void setMainResources(String dialogBGPath, String nameBGPath, String ShadowPath)
         {
@@ -252,9 +346,42 @@ namespace NyaaNovelWPF
             Shadow.Source = shadowImage;
         }
 
-        private void finishNovel()
+
+
+        /* 
+         * -------------------------------------------
+         * Method Group: Interface Triggers
+         * Object triggers
+         * -------------------------------------------
+         */
+
+
+        private void Choice1_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
+            hideAllButtons();
+            addFlag(thisDialog.getChoices().getFlag(0));
+            nextPage();
+        }
+
+        private void Choice2_Click(object sender, RoutedEventArgs e)
+        {
+            hideAllButtons();
+            addFlag(thisDialog.getChoices().getFlag(1));
+            nextPage();
+        }
+
+        private void Choice3_Click(object sender, RoutedEventArgs e)
+        {
+            hideAllButtons();
+            addFlag(thisDialog.getChoices().getFlag(2));
+            nextPage();
+        }
+
+        private void Choice4_Click(object sender, RoutedEventArgs e)
+        {
+            hideAllButtons();
+            addFlag(thisDialog.getChoices().getFlag(3));
+            nextPage();
         }
 
         private void Image_MouseDown_1(object sender, MouseButtonEventArgs e)
@@ -275,11 +402,6 @@ namespace NyaaNovelWPF
         private void SceneSwitcher_MouseDown(object sender, MouseButtonEventArgs e)
         {
             triggerNextPage();
-        }
-
-        private void triggerNextPage()
-        {
-            nextPage();
         }
     }
 }
