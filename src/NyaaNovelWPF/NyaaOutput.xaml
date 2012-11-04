@@ -16,7 +16,7 @@
         <Grid x:Name="Choices" Margin="69,603,67,10" Width="1144" Visibility="Hidden">
             <Button x:Name="Choice1" Content="1" HorizontalAlignment="Left" Margin="0,0,0,0" Width="552" Height="30" VerticalAlignment="Top" Click="Choice1_Click"/>
             <Button x:Name="Choice2" Content="2" HorizontalAlignment="Left" Margin="0,40,0,0" Width="552" Height="30" VerticalAlignment="Top" Click="Choice2_Click"/>
-            <Button x:Name="Choice3" Content="3" HorizontalAlignment="Left" Margin="581,0,0,0" Width="552" Height="30" VerticalAlignment="Top" Click="Choice3_Click"/>
+            <Button x:Name="Choice3" Content="3" HorizontalAlignment="Left" Margin="567,0,0,0" Width="552" Height="30" VerticalAlignment="Top" Click="Choice3_Click"/>
             <Button x:Name="Choice4" Content="4" HorizontalAlignment="Left" Margin="567,40,0,0" Width="552" Height="30" VerticalAlignment="Top" Click="Choice4_Click"/>
         </Grid>
         

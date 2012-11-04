@@ -70,7 +70,15 @@ namespace NyaaNovelWPF
              bmImage.EndInit();
              Background.Source = bmImage;
              DoubleAnimation anim2 = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(2));
-             SceneSwitcher.BeginAnimation(Image.OpacityProperty, anim2);
+             Storyboard board2 = new Storyboard();
+             board2.Children.Add(anim2);
+             Storyboard.SetTarget(anim2, SceneSwitcher);
+             Storyboard.SetTargetProperty(anim2, new PropertyPath("(Opacity)"));
+             board2.Completed += delegate
+             {
+                 Animating = false;
+             };
+             board2.Begin();
              Update(Novel.getCurrentBackground(), thisDialog);
         }
 
@@ -96,7 +104,6 @@ namespace NyaaNovelWPF
                         setCharacterImage(CurrentDialog.getCharacterImage());
                         setShadow(CurrentDialog.getShadow());
                         NyaaDebug.addToConsole("Switching Backgrounds");
-                        // Create image element to set as icon on the menu element
                         BitmapImage bmImage = new BitmapImage();
                         bmImage.BeginInit();
                         bmImage.UriSource = new Uri(imagePath, UriKind.Absolute);
@@ -107,7 +114,7 @@ namespace NyaaNovelWPF
                         Storyboard board2 = new Storyboard();
                         board2.Children.Add(anim2);
                         Storyboard.SetTarget(anim2, SceneSwitcher);
-                        Storyboard.SetTargetProperty(anim1, new PropertyPath("(Opacity)"));
+                        Storyboard.SetTargetProperty(anim2, new PropertyPath("(Opacity)"));
                         board2.Completed += delegate
                         {
                             Animating = false;
@@ -161,9 +168,12 @@ namespace NyaaNovelWPF
 
         private void triggerNextPage()
         {
-            if (!thisDialog.getUserInteracting() || !Animating )
+            if (!thisDialog.getUserInteracting())
             {
-                nextPage();
+                if (Animating == false)
+                {
+                    nextPage();
+                }
             }
         }
 
@@ -253,9 +263,18 @@ namespace NyaaNovelWPF
                         charImage.EndInit();
                         CharacterImage.Source = charImage;
                         CurrentCharPath = imagePath;
-                        DoubleAnimation anim2 = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(1));
-                        CharacterImage.BeginAnimation(Image.OpacityProperty, anim2);
+                        DoubleAnimation anim2 = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(2));
+                        Storyboard board2 = new Storyboard();
+                        board2.Children.Add(anim2);
+                        Storyboard.SetTarget(anim2, CharacterImage);
+                        Storyboard.SetTargetProperty(anim2, new PropertyPath("(Opacity)"));
+                        board2.Completed += delegate
+                        {
+                            Animating = false;
+                        };
+                        board2.Begin();
                     };
+                    Animating = true;
                     board.Begin();
                 }
             }
