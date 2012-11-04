@@ -110,9 +110,9 @@ What's in the 'hub
 ------------------
 
 - src
-  - This is the VS2012 project files
-- res
-  - Example story file
+  - This is the VS2012 project file
+	- The Example story is inside of the project and editable in VS
+
   
 Status
 ------
