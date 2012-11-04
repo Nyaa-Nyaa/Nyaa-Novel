@@ -26,12 +26,13 @@ namespace NyaaNovelWPF
             InitializeComponent();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
             /* 
-             * Load a folder containing contents for the story
-             * Main file will be NameOfStory.nyaa (my magic extention)
-             */
+            * Load a folder containing contents for the story
+            * Main file will be NameOfStory.nyaa (my magic extention)
+            */
 
             OpenFileDialog storyFileLocation = new OpenFileDialog();
 
@@ -39,10 +40,11 @@ namespace NyaaNovelWPF
             storyFileLocation.Title = "Open Nyaa Story";
             storyFileLocation.ShowDialog();
 
-            NyaaNovel loadedNovel = new NyaaNovel(storyFileLocation.FileName);
-            
-
-            this.Hide();
+            if (storyFileLocation.FileName.CompareTo("") != 0)
+            {
+                NyaaNovel loadedNovel = new NyaaNovel(storyFileLocation.FileName, DebugCheckBox.IsChecked);
+                this.Hide();
+            }
         }
     }
 }

@@ -244,10 +244,12 @@ namespace NyaaNovelWPF
 
         private void setCharacterImage(String imagePath)
         {
+            
             if (CurrentCharPath.CompareTo(imagePath) != 0)
             {
                 if (File.Exists(imagePath))
                 {
+                    NyaaDebug.addToConsole(imagePath);
                     DoubleAnimation anim1 = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(1));
                     Storyboard board = new Storyboard();
                     board.Children.Add(anim1);
@@ -286,12 +288,31 @@ namespace NyaaNovelWPF
             if (text.CompareTo("") != 0 && TextBG.Opacity == 0)
             {
                 DoubleAnimation anim1 = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.1));
-                TextBG.BeginAnimation(Image.OpacityProperty, anim1);
+                Storyboard board = new Storyboard();
+                board.Children.Add(anim1);
+                Storyboard.SetTarget(anim1, TextBG);
+                Storyboard.SetTargetProperty(anim1, new PropertyPath("(Opacity)"));
+                board.Completed += delegate
+                {
+                    Animating = false;
+                };
+                Animating = true;
+                board.Begin();
+                
             }
             if (text.CompareTo("") == 0 && TextBG.Opacity == 1)
             {
                 DoubleAnimation anim1 = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(0.1));
-                TextBG.BeginAnimation(Image.OpacityProperty, anim1);
+                Storyboard board = new Storyboard();
+                board.Children.Add(anim1);
+                Storyboard.SetTarget(anim1, TextBG);
+                Storyboard.SetTargetProperty(anim1, new PropertyPath("(Opacity)"));
+                board.Completed += delegate
+                {
+                    Animating = false;
+                };
+                Animating = true;
+                board.Begin();
             }
         }
 
@@ -301,12 +322,30 @@ namespace NyaaNovelWPF
             if (text.CompareTo("") != 0 && NameBG.Opacity == 0)
             {
                 DoubleAnimation anim1 = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.1));
-                NameBG.BeginAnimation(Image.OpacityProperty, anim1);
+                Storyboard board = new Storyboard();
+                board.Children.Add(anim1);
+                Storyboard.SetTarget(anim1, NameBG);
+                Storyboard.SetTargetProperty(anim1, new PropertyPath("(Opacity)"));
+                board.Completed += delegate
+                {
+                    Animating = false;
+                };
+                Animating = true;
+                board.Begin();
             }
             if (text.CompareTo("") == 0 && NameBG.Opacity == 1)
             {
                 DoubleAnimation anim1 = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(0.1));
-                NameBG.BeginAnimation(Image.OpacityProperty, anim1);
+                Storyboard board = new Storyboard();
+                board.Children.Add(anim1);
+                Storyboard.SetTarget(anim1, NameBG);
+                Storyboard.SetTargetProperty(anim1, new PropertyPath("(Opacity)"));
+                board.Completed += delegate
+                {
+                    Animating = false;
+                };
+                Animating = true;
+                board.Begin();
             }
         }
 

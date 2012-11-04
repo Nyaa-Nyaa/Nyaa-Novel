@@ -15,13 +15,15 @@ namespace NyaaNovelWPF
         NyaaChapter[] NyaaChapters;
         String rootDirectory;
         Boolean animated;
+        bool debugging;
         NyaaOutput OutputWindow;
         int curLocationChapter;
         int Length;
 
-        public NyaaNovel(String novelLocation)
+        public NyaaNovel(String novelLocation, bool debug)
         {
             animated = false;
+            debugging = debug;
             curLocationChapter = 0;
             rootLocation = novelLocation;
             rootDirectory = rootLocation.Substring(0, rootLocation.LastIndexOf("\\"));
@@ -32,7 +34,11 @@ namespace NyaaNovelWPF
         {
             // Start Debug Console
             NyaaDebug = new DebugConsole();
-            NyaaDebug.Show();
+            if (debugging)
+            {
+                NyaaDebug.Show();
+            }
+            
             NyaaDebug.addToConsole("NyaaNovel Pre-Alpha 0.0.1a Console Loaded");
             
             NyaaDebug.addToConsole("Notice: Loaded Output Window!");
