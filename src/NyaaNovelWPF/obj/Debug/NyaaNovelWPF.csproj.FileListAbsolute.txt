@@ -49,3 +49,4 @@ F:\Users\Pavel\Documents\GitHub\Nyaa-Novel\src\NyaaNovelWPF\obj\Debug\NyaaNovelW
 F:\Users\Pavel\Documents\GitHub\Nyaa-Novel\src\NyaaNovelWPF\obj\Debug\NyaaNovelWPF.g.resources
 F:\Users\Pavel\Documents\GitHub\Nyaa-Novel\src\NyaaNovelWPF\obj\Debug\NyaaNovelWPF.Properties.Resources.resources
 F:\Users\Pavel\Documents\GitHub\Nyaa-Novel\src\NyaaNovelWPF\obj\Debug\NyaaNovelWPF.csproj.GenerateResource.Cache
+F:\Users\Pavel\Documents\GitHub\Nyaa-Novel\src\NyaaNovelWPF\obj\Debug\App.baml
