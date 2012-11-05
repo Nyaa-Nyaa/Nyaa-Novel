@@ -7,8 +7,8 @@
         <Grid
             Background="#FFECECEC">
             <Image Margin="13,5,0,0" Source="res\icon.png" Stretch="Fill" Height="26" Width="28" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <Rectangle  Height="26" VerticalAlignment="Bottom" Fill="#FF5C55DE"/>
-            <Label Content="Ready" Height="26" VerticalAlignment="Bottom" FontWeight="ExtraLight" Foreground="White" Margin="0,0,10,0"/>
+            <Rectangle x:Name="statusRect"  Height="26" VerticalAlignment="Bottom" Fill="#FF5C55DE"/>
+            <Label x:Name="statusLabel" Content="Ready" Height="26" VerticalAlignment="Bottom" FontWeight="ExtraLight" Foreground="White" Margin="0,0,10,0"/>
             <Grid Margin="0,30,0,0">
                 <Menu IsMainMenu="True" Height="23" VerticalAlignment="Top" Background="#FFECECEC" FontWeight="ExtraLight" Margin="10,0,0,0" >
                     <MenuItem Header="_FILE" Margin="0,1">

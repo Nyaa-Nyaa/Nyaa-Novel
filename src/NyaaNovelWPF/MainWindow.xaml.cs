@@ -510,6 +510,8 @@ namespace NyaaNovelWPF
                 loadedNovel = new NyaaNovel(LoadedFile, DebugCheckBox.IsChecked);
                 DebugMenu.IsEnabled = false;
                 StopMenu.IsEnabled = true;
+                statusRect.Fill = new SolidColorBrush(Colors.Red);
+                statusLabel.Content = "Debugging";
             }
         }
 
@@ -532,12 +534,14 @@ namespace NyaaNovelWPF
 
             try
             {
+            
                 //Check for <root-file>true</root-file>
                 XmlNodeList rootfileQuery = rootNyaaStoryFile.SelectNodes("/story");
                 if (rootfileQuery[0]["root-file"].InnerText.CompareTo("true") == 0)
                 {
                     rootfileQuery = rootNyaaStoryFile.SelectNodes("//info");
-                    BarLabel.Content = rootfileQuery[0]["title"].InnerText + " Nyaa-Novel Studio | Current User: " + rootfileQuery[0]["title"].InnerText;
+                    BarLabel.Content = rootfileQuery[0]["title"].InnerText + " Nyaa-Novel Studio | Current User: " + rootfileQuery[0]["author"].InnerText;
+                    
                     SaveMenu.IsEnabled = true;
                     SaveAsMenu.IsEnabled = true;
                     DebugMenu.IsEnabled = true;
