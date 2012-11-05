@@ -12,7 +12,7 @@ namespace NyaaNovelWPF
     {
         int Location;
         int Length;
-        DebugConsole NyaaDebug;
+        MainWindow NyaaDebug;
         String ChapterLocation;
         String sceneBackground;
         String sceneTransition;
@@ -20,7 +20,7 @@ namespace NyaaNovelWPF
         XmlNodeList sceneContent;
         
 
-        public NyaaScene(String Transition, String Background, XmlNodeList Content, String inLocation, DebugConsole NyaaDebugPointer)
+        public NyaaScene(String Transition, String Background, XmlNodeList Content, String inLocation, MainWindow NyaaDebugPointer)
         {
             Location = 0;
             sceneBackground = Background;

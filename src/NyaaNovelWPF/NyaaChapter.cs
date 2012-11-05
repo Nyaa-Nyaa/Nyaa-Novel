@@ -17,9 +17,9 @@ namespace NyaaNovelWPF
         String ChapterLoadingScreenLocation;
         XmlDocument ChapterXml;
         NyaaScene[] SceneList;
-        DebugConsole NyaaDebug;
+        MainWindow NyaaDebug;
 
-        public NyaaChapter(String Name, String Location, String LoadingScreenLocation, String rootDirectory, DebugConsole NyaaDebugPointer)
+        public NyaaChapter(String Name, String Location, String LoadingScreenLocation, String rootDirectory, MainWindow NyaaDebugPointer)
         {
             sceneLoc = 0;
             ChapterName = Name;

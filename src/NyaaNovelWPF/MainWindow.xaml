@@ -8,9 +8,10 @@
             Background="#FFECECEC">
             <Image Margin="13,5,0,0" Source="res\icon.png" Stretch="Fill" Height="26" Width="28" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <Rectangle x:Name="statusRect"  Height="26" VerticalAlignment="Bottom" Fill="#FF5C55DE"/>
+            
             <Label x:Name="statusLabel" Content="Ready" Height="26" VerticalAlignment="Bottom" FontWeight="ExtraLight" Foreground="White" Margin="0,0,10,0"/>
             <Grid Margin="0,30,0,0">
-                <Menu IsMainMenu="True" Height="23" VerticalAlignment="Top" Background="#FFECECEC" FontWeight="ExtraLight" Margin="10,0,0,0" >
+                <Menu IsMainMenu="True" Height="23" VerticalAlignment="Top" Background="#FFECECEC" Margin="10,0,0,0" >
                     <MenuItem Header="_FILE" Margin="0,1">
                         <MenuItem Header="_New Project..." />
                         <Separator />
@@ -44,11 +45,43 @@
                         <MenuItem Header="About Nyaa-Novel" />
                     </MenuItem>
                 </Menu>
-                
+                <Rectangle x:Name="topRect"  Height="3" VerticalAlignment="Top" Fill="#FF5C55DE" Margin="0,25,0,0"/>
                 
                 <Grid Margin="0,28,0,26">
-                    
 
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="150"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Editor" Grid.Column="0" Background="#FF5C55DE" Height="27" VerticalAlignment="Top" Margin="10,0,0,0" Width="88" HorizontalAlignment="Left" Foreground="White" />
+
+                        <GridSplitter HorizontalAlignment="Right" 
+                  VerticalAlignment="Stretch" 
+                  Grid.Column="1" ResizeBehavior="PreviousAndNext"
+                  Width="3" Background="#FF5C55DE"/>
+                        <Label Content="Novel Explorer" Grid.Column="2" Background="#FF5C55DE" Height="27" VerticalAlignment="Top" Margin="10,0,0,0" Width="88" HorizontalAlignment="Left" Foreground="White" />
+                        <TreeView x:Name="NovelTree" BorderThickness="0" Grid.Column="2" Background="#FFECECEC" Margin="0,32,0,0"/>
+                    </Grid>
+                          
+                    <GridSplitter 
+                        ResizeDirection="Rows" 
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2" 
+                        Grid.Row="1" 
+                        Width="Auto" 
+                        Height="3"
+                        HorizontalAlignment="Stretch" 
+                        VerticalAlignment="Stretch" 
+                        Margin="0" Background="#FF5C55DE"/>
+                    <Label Content="Debug Console" Grid.Row="2" Background="#FF5C55DE" Height="27" VerticalAlignment="Top" Margin="10,0,0,0" Width="95" HorizontalAlignment="Left" Foreground="White" />
+                    <RichTextBox BorderThickness="0" Margin="0,32,0,0" Grid.Row="2" x:Name="ConsoleText" IsReadOnly="True" TextOptions.TextFormattingMode="Display" Block.LineHeight="1" FontFamily="Consolas" FontSize="11" Background="#FFECECEC" />
 
                 </Grid>
             </Grid>

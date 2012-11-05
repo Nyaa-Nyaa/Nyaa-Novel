@@ -23,7 +23,7 @@ namespace NyaaNovelWPF
     public partial class NyaaOutput : Window
     {
         NyaaNovel Novel;
-        DebugConsole NyaaDebug;
+        MainWindow NyaaDebug;
         String CurrentCharPath;
         String CurrentBGPath;
         Boolean Animating;
@@ -39,7 +39,7 @@ namespace NyaaNovelWPF
          * ===========================================
          */
 
-        public NyaaOutput(NyaaNovel novelToControl, DebugConsole NyaaDebugPointer)
+        public NyaaOutput(NyaaNovel novelToControl, MainWindow NyaaDebugPointer)
         {
             InitializeComponent();
             NyaaDebug = NyaaDebugPointer;

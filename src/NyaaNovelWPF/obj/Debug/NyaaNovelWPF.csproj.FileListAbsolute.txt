@@ -38,10 +38,8 @@ F:\Users\Pavel\Documents\GitHub\Nyaa-Novel\src\NyaaNovelWPF\obj\Debug\NyaaNovelW
 F:\Users\Pavel\Documents\GitHub\Nyaa-Novel\src\NyaaNovelWPF\bin\Debug\NyaaNovelWPF.exe
 F:\Users\Pavel\Documents\GitHub\Nyaa-Novel\src\NyaaNovelWPF\bin\Debug\NyaaNovelWPF.pdb
 F:\Users\Pavel\Documents\GitHub\Nyaa-Novel\src\NyaaNovelWPF\obj\Debug\NyaaNovelWPF.csprojResolveAssemblyReference.cache
-F:\Users\Pavel\Documents\GitHub\Nyaa-Novel\src\NyaaNovelWPF\obj\Debug\DebugConsole.baml
 F:\Users\Pavel\Documents\GitHub\Nyaa-Novel\src\NyaaNovelWPF\obj\Debug\MainWindow.baml
 F:\Users\Pavel\Documents\GitHub\Nyaa-Novel\src\NyaaNovelWPF\obj\Debug\NyaaOutput.baml
-F:\Users\Pavel\Documents\GitHub\Nyaa-Novel\src\NyaaNovelWPF\obj\Debug\DebugConsole.g.cs
 F:\Users\Pavel\Documents\GitHub\Nyaa-Novel\src\NyaaNovelWPF\obj\Debug\MainWindow.g.cs
 F:\Users\Pavel\Documents\GitHub\Nyaa-Novel\src\NyaaNovelWPF\obj\Debug\NyaaOutput.g.cs
 F:\Users\Pavel\Documents\GitHub\Nyaa-Novel\src\NyaaNovelWPF\obj\Debug\App.g.cs

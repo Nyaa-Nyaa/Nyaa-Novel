@@ -16,9 +16,7 @@ using System.Windows.Shapes;
 using Microsoft.Win32;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
-using System.Windows;
 using System.Windows.Interop;
-using System.Windows.Shapes;
 using System.Xml;
 
 namespace NyaaNovelWPF
@@ -39,6 +37,8 @@ namespace NyaaNovelWPF
         String LoadedFile;
         XmlDocument rootNyaaStoryFile;
         NyaaNovel loadedNovel;
+        Brush LastColor;
+        String rootDirectory;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow"/> class.
@@ -499,6 +499,7 @@ namespace NyaaNovelWPF
             if (storyFileLocation.FileName.CompareTo("") != 0)
             {
                 LoadedFile = storyFileLocation.FileName;
+                rootDirectory = LoadedFile.Substring(0, LoadedFile.LastIndexOf("\\"));
                 loadNovel(LoadedFile);
             }
         }
@@ -507,9 +508,10 @@ namespace NyaaNovelWPF
         {
             if (LoadedFile.CompareTo("") != 0)
             {
-                loadedNovel = new NyaaNovel(LoadedFile, DebugCheckBox.IsChecked);
+                loadedNovel = new NyaaNovel(LoadedFile, this);
                 DebugMenu.IsEnabled = false;
                 StopMenu.IsEnabled = true;
+                LastColor = statusRect.Fill;
                 statusRect.Fill = new SolidColorBrush(Colors.Red);
                 statusLabel.Content = "Debugging";
             }
@@ -524,33 +526,93 @@ namespace NyaaNovelWPF
                 try
                 {
                     rootNyaaStoryFile.Load(novel);
-                    
                 }
                 catch (XmlException ex)
                 {
-                    
+                    addToConsole(String.Format("FATAL: Your MainStory.nyaa is broken: {0}", ex.Message));
                 }
             }
 
             try
             {
-            
                 //Check for <root-file>true</root-file>
                 XmlNodeList rootfileQuery = rootNyaaStoryFile.SelectNodes("/story");
                 if (rootfileQuery[0]["root-file"].InnerText.CompareTo("true") == 0)
                 {
                     rootfileQuery = rootNyaaStoryFile.SelectNodes("//info");
                     BarLabel.Content = rootfileQuery[0]["title"].InnerText + " Nyaa-Novel Studio | Current User: " + rootfileQuery[0]["author"].InnerText;
-                    
                     SaveMenu.IsEnabled = true;
                     SaveAsMenu.IsEnabled = true;
                     DebugMenu.IsEnabled = true;
+                    //Set Resources
+                    XmlNodeList ResourceQuery = rootNyaaStoryFile.SelectNodes("//resources");
+                    String[] ResourceOut = { getResourceLocation(ResourceQuery[0]["dialog-bg"].InnerText), getResourceLocation(ResourceQuery[0]["name-bg"].InnerText), getResourceLocation(ResourceQuery[0]["shadow"].InnerText) };
+                    //Split into objects
+                    XmlNodeList tempList = rootNyaaStoryFile.SelectNodes("//chapters/chapter");
+                    addToConsole("Notice: Chapter Query Success! Number of Chapters reported: " + tempList.Count);
+                    int chapterNo = 0; //sigh no .add method...
+                    foreach (XmlNode chapter in tempList)
+                    {
+                        addToConsole("\n ---| New Chapter Search |---");
+                        String title = chapter["title"].InnerText;
+                        String loadingSplash = getResourceLocation(chapter["loading-splash"].InnerText);
+                        String chapterLocation = getResourceLocation(chapter["chapter-location"].InnerText);
+                        addToConsole("Notice: Found chapter: " + title);
+                        if (File.Exists(chapterLocation))
+                        {
+                            addToConsole("Notice: Chapter is found in: " + chapterLocation + "; Now loading...");
+                        }
+                        else
+                        {
+                            addToConsole("FATAL!! : Chapter file is missing, intended location: " + chapterLocation);
+                        }
+                        NovelTree.Items.Add(ChapterToTreeItem(title, chapterLocation));
+                        chapterNo++;
+                    }
                 }
             }
             catch (XmlException ex)
             {
-                
+                addToConsole(String.Format("FATAL: Bad query... : {0}", ex.Message));
             }
+        }
+
+        private TreeViewItem ChapterToTreeItem(string title, string chapterLocation)
+        {
+            TreeViewItem treeItem = new TreeViewItem();
+            treeItem.Header = title;
+
+            XmlDocument ChapterXml = new XmlDocument();
+            if (File.Exists(chapterLocation))
+            {
+                addToConsole("Notice: File found! Loading: " + chapterLocation);
+                try
+                {
+                    ChapterXml.Load(chapterLocation);
+                    addToConsole("Notice: Chapter File (successfully) loaded!");
+                    XmlNodeList Scenes = ChapterXml.SelectNodes("//scenes/scene");
+                    
+                    addToConsole("\n -| Starting Scene Search for Chapter: " + title + "|-");
+                    addToConsole("Notice: Found " + Scenes.Count + " scenes to process");
+                    int sceneNumber = 0;
+                    foreach (XmlNode sceneData in Scenes)
+                    {
+                        int tempSN = sceneNumber+1;
+                        treeItem.Items.Add(new TreeViewItem() { Header = "Scene " + tempSN });
+                        sceneNumber++;
+                    }
+                }
+                catch (XmlException ex)
+                {
+                    addToConsole(String.Format("FATAL: Your " + chapterLocation + " is broken: {0}", ex.Message));
+                }
+            }
+            else
+            {
+                 addToConsole("FATAL: Failed to load file");
+            }
+
+            return treeItem;
         }
 
         private void MenuItem_Click_2(object sender, System.Windows.RoutedEventArgs e)
@@ -563,9 +625,24 @@ namespace NyaaNovelWPF
             stopNovel();
         }
 
+        public void addToConsole(String line)
+        {
+            ConsoleText.AppendText(line + "\n");
+        }
+
+
+        private string getResourceLocation(String rootBasedLocation)
+        {
+            return rootDirectory + rootBasedLocation.Substring(1);
+        }
+
         private void stopNovel()
         {
-            loadedNovel = null; 
+            loadedNovel.killNovelWindow();
+            loadedNovel = null;
+            GC.Collect();
+            statusRect.Fill = LastColor;
+            statusLabel.Content = "Ready";
             StopMenu.IsEnabled = false;
             DebugMenu.IsEnabled = true;
         }
