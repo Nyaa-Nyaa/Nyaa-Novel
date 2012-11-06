@@ -46,8 +46,13 @@
                     </MenuItem>
                 </Menu>
                 <Rectangle x:Name="topRect"  Height="3" VerticalAlignment="Top" Fill="#FF5C55DE" Margin="0,25,0,0"/>
-                
-                <Grid Margin="0,28,0,26">
+
+                <Grid x:Name="WelcomeGrid" Margin="0,28,0,26">
+                    <Label Content="「Nyaa-Novel」 へようこそ" FontWeight="Thin" FontSize="48" FontFamily="Segoe UI Light" Foreground="White" Height="77" VerticalAlignment="Top" Background="#FF5C55DE"/>
+                    <Label Content=" Let's get you started!" FontWeight="Thin"  FontSize="14" FontFamily="Segoe UI Light" Foreground="White" Height="32" VerticalAlignment="Top" Background="#FF5C55DE" Margin="10,77,0,0" HorizontalAlignment="Left" Width="144"/>
+                    <TextBlock Margin="10,132,10,-18" xml:space="preserve" FontSize="18" Foreground="#FF4B4B4B" >Go to the file menu to start a new project or load an existing project. <LineBreak/><LineBreak/>Tips for first time users: <LineBreak/><LineBreak/>       -Setup your author profile in the settings<LineBreak/>       -Load up the test project to get used to the interface<LineBreak/>       -Join #nyaa-nyaa@irc.rizon.net for live support</TextBlock>
+                </Grid>
+                <Grid x:Name="ProjectGrid" Margin="0,28,0,26" Visibility="Hidden">
 
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>

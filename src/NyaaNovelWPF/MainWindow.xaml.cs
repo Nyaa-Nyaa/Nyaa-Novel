@@ -540,9 +540,9 @@ namespace NyaaNovelWPF
                 if (rootfileQuery[0]["root-file"].InnerText.CompareTo("true") == 0)
                 {
                     rootfileQuery = rootNyaaStoryFile.SelectNodes("//info");
-                    BarLabel.Content = rootfileQuery[0]["title"].InnerText + " Nyaa-Novel Studio | Current User: " + rootfileQuery[0]["author"].InnerText;
+                    //BarLabel.Content = rootfileQuery[0]["title"].InnerText + " - Nyaa-Novel Studio - Current User: " + rootfileQuery[0]["author"].InnerText;
                     SaveMenu.IsEnabled = true;
-                    SaveAsMenu.IsEnabled = true;
+                    SaveAsMenu.IsEnabled = true; 
                     DebugMenu.IsEnabled = true;
                     //Set Resources
                     XmlNodeList ResourceQuery = rootNyaaStoryFile.SelectNodes("//resources");
@@ -569,6 +569,8 @@ namespace NyaaNovelWPF
                         NovelTree.Items.Add(ChapterToTreeItem(title, chapterLocation));
                         chapterNo++;
                     }
+                    ProjectGrid.Visibility = Visibility.Visible;
+                    WelcomeGrid.Visibility = Visibility.Hidden;
                 }
             }
             catch (XmlException ex)
